@@ -1,17 +1,14 @@
 const initialState = {
-    // Student: {
-    //     id: 1,
-    //     maSV: "ewerwer",
-    //     name: "eweerewr",
-    //     phone: "242234",
-    //     email: "hskjf@gmail.com",
-    // },
-    listStudents: [
-      
-    ],
+    listStudents: [],
     editStudent: null,
     keywordSearch: "",
-
+    errors: {
+        id: "",
+        maSV: "",
+        name: "",
+        phone: "",
+        email: "",
+    }
 }
 
 const studentReducer = (state = initialState, action) => {
@@ -32,9 +29,7 @@ const studentReducer = (state = initialState, action) => {
                 const newStudent = { ...student, id: date.getTime() };
                 listStudentsClone.push(newStudent);
             }
-            state.listStudents = listStudentsClone
-            state.editStudent = null
-
+            state.listStudents = listStudentsClone;
             return { ...state }
 
 
@@ -45,10 +40,7 @@ const studentReducer = (state = initialState, action) => {
                 student.maSV !== action.payload
             )
             state.listStudents = listStudentsFilter
-
             return { ...state }
-
-
 
         //Đổ data lên form để chỉnh sửa
         case "EDIT_STUDENT":
@@ -58,8 +50,11 @@ const studentReducer = (state = initialState, action) => {
 
         case 'SEARCH_STUDENT':
             state.keywordSearch = action.payload
-            
             return { ...state }
+        // case 'VALIDATION':
+        //     let err = { ...state.errors}
+
+        //     return { ...state }
 
         default:
             return { ...state }

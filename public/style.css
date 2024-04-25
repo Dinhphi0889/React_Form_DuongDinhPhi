@@ -1,26 +1,35 @@
-body{
+body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 
 }
 
-.form-group{
-    display: inline-block;
+.form-group {
+    display: inline-table;
     padding: 20px;
     width: 50%;
+    height: 150px;
+
 }
-.form-control{
-    margin-bottom: 30px;
-}
-label{
+
+label {
     margin: 0 20px 10px 0;
     font-size: 20px;
     font-weight: 600;
 }
-.functional{
+
+.functional {
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin-bottom: 30px;
 }
+
+.showError {
+
+    display: inline;
+    width: 200px;
+    height: 20px;
+}
+
